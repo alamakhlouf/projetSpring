@@ -1,4 +1,4 @@
-package tn.esprit.spring.springbootalternance.Entity;
+package tn.esprit.spring.springbootalternance.DAO.Entity;
 
 
 import jakarta.persistence.*;
@@ -6,7 +6,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Skieur")
@@ -14,6 +14,7 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 @AllArgsConstructor
 public class Skieur {
 
@@ -31,6 +32,18 @@ public class Skieur {
     @Temporal(TemporalType.DATE)
     LocalDate dateNaissance;
 
-    @Column(name="ville")
+    @Column(name = "ville")
     String ville;
+
+    @ManyToMany(mappedBy = "skieur")
+    @ToString.Exclude
+    List<Piste> piste;
+
+    @OneToMany(mappedBy = "skieur")
+    @ToString.Exclude
+    List<Inscription> inscription;
+
+    @OneToOne
+    @ToString.Exclude
+    Abonnement abonnement;
 }

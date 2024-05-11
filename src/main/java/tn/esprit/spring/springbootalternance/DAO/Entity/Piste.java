@@ -1,10 +1,11 @@
-package tn.esprit.spring.springbootalternance.Entity;
+package tn.esprit.spring.springbootalternance.DAO.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Piste")
@@ -16,9 +17,6 @@ import java.io.Serializable;
 public class Piste implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idPiste")
-    private Integer idPiste; // Clé primaire
-
     @Column(name = "numPiste")
     private Long numPiste;
 
@@ -34,6 +32,10 @@ public class Piste implements Serializable {
 
     @Column(name = "pente")
     private Integer pente;
+
+    @ToString.Exclude
+    @ManyToMany
+    List<Skieur> skieur ;
 }
 
 

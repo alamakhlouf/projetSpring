@@ -1,4 +1,4 @@
-package tn.esprit.spring.springbootalternance.Entity;
+package tn.esprit.spring.springbootalternance.DAO.Entity;
 
 
 import jakarta.persistence.*;
@@ -35,7 +35,6 @@ public class Abonnement {
     @Column(name = "typeAbonnement")
     @Enumerated(EnumType.STRING)
     TypeAbonnement typeAbonnement;
-
 }
 
 

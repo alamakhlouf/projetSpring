@@ -1,9 +1,11 @@
-package tn.esprit.spring.springbootalternance.Entity;
+package tn.esprit.spring.springbootalternance.DAO.Entity;
 
 
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Cours")
@@ -35,6 +37,10 @@ public class Cours {
 
     @Column(name = "cerneau")
     int cerneau;
+
+    @OneToMany(mappedBy = "cours")
+    List<Inscription> inscriptions;
+
 }
 
 enum Support {

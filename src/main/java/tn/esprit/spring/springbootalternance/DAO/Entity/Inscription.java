@@ -1,4 +1,4 @@
-package tn.esprit.spring.springbootalternance.Entity;
+package tn.esprit.spring.springbootalternance.DAO.Entity;
 
 
 import jakarta.persistence.*;
@@ -21,4 +21,9 @@ public class Inscription {
     Long numInscription;
     @Column(name = "numSemaine")
     int numSemaine;
+    @ManyToOne
+    Skieur skieur;
+
+    @ManyToOne
+    Cours cours;
 }
